@@ -18,12 +18,15 @@ class Db {
 		$stat = $this->db->prepare($sql);
 		if (!empty($params)) {
 			foreach ($params as $key => $val) {
-				$stat->bindValue(':'.$key, $val);
+				if (is_int($val)) {
+					$type = PDO::PARAM_INT;
+				} else {
+					$type = PDO::PARAM_STR;
+				}
+				$stat->bindValue(':'.$key, $val, $type);
 			}
 		}
-
 		$stat->execute();
-
 		return $stat;
 	}
 

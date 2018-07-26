@@ -3,6 +3,7 @@
 namespace application\core;
 
 use application\core\View;
+use PHPMailer;
 
 class Controller{
 	
@@ -11,11 +12,11 @@ class Controller{
 	public $acl;
 
 	public function __construct($route) {
+		$this->route = $route;
 		// $_SESSION['authorize']['id'] = 1;
 		// if(!$this->checkAcl()) {
 		// 	View::errorCode(403);
 		// }
-		$this->route = $route;
 		$this->view = new View($route);
 		$this->model = $this->loadModel($route['controller']);
 	}
@@ -32,10 +33,10 @@ class Controller{
 		if ($this->isAcl('all')) {
 			return true;
 		}
-		elseif (isset($_SESSION['authorize']['id']) and $this->isAcl('authorize')) {
+		elseif (isset($_SESSION['account']['id']) and $this->isAcl('authorize')) {
 			return true;
 		}
-		elseif (!isset($_SESSION['authorize']['id']) and $this->isAcl('guest')) {
+		elseif (!isset($_SESSION['account']['id']) and $this->isAcl('guest')) {
 			return true;
 		}
 		elseif (!isset($_SESSION['admin']['id']) and $this->isAcl('admin')) {

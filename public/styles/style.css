@@ -2,16 +2,16 @@
 	background-color:#cccccc
 }
 #header{
-	width:1280px; /* Исходное 1280 */
-	height:306px;
+	width:1200px; /* Исходное 1200 */
+	height:300px; /* Исходное 803 */
 	margin:0 auto;
 	background-color: #6699cc;
-	background-image: url(img/head_img.jpg);
+	background-image: url(/public/images/head_img.jpg);
 	background-position:center top;
 	background-repeat: no-repeat;
 }
 #menu{
-	width:1280px;
+	width:1200px;
 	margin:0 auto;
 	padding: 10px 0px;
 	background-color: #F0F0F0;
@@ -19,7 +19,7 @@
 	text-align:center;
 	display:block;
 }
-#main, #news, #contacts, #login, #registration, #adminer{
+#main, #news, #contacts, #account, #registration, #adminer{
 	width: 100px;
 	height: 30px;
 	border: 0px solid #707070;
@@ -33,7 +33,7 @@
 	text-decoration: none;
 	
 }
-#main:hover, #news:hover, #contacts:hover, #login:hover, #registration:hover, #adminer:hover{
+#main:hover, #news:hover, #contacts:hover, #account:hover, #registration:hover, #adminer:hover{
 	color: #303030;
 	background-color: white;
 }
@@ -53,12 +53,14 @@ h1{
 	font-size:30px;
 }
 #footer{
-	width:1280px;
-	height:80px;
+	width:1200px;
+	height:200px;
 	background-color: #333333;
 	color: white;
 	margin:0 auto;
-	padding: 30px;
 	font-family: Verdana;
 	font-size:10px;
+	background-image: url(/public/images/head_img.jpg);
+	background-position:center bottom;
+	background-repeat: no-repeat;
 }
